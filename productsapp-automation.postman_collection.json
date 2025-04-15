@@ -1,0 +1,102 @@
+{
+	"info": {
+		"_postman_id": "cee501ad-d501-49fd-ab6f-3aa714ccd482",
+		"name": "productsapp-automation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39122278"
+	},
+	"item": [
+		{
+			"name": "Get All Products",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response = pm.response.json();\r",
+							"\r",
+							"\r",
+							"pm.test(\"value of [0].Id to be 1\", () => {pm.expect(response[0].Id).to.equal(1)});\r",
+							"pm.test(\"value of [0].Name to be Tomato Soup\", () => {pm.expect(response[0].Name).to.equal(\"Tomato Soup\")});\r",
+							"pm.test(\"value of [0].Category to be Groceries\", () => {pm.expect(response[0].Category).to.equal(\"Groceries\")});\r",
+							"pm.test(\"value of [0].Price to be 1.0\", () => {pm.expect(response[0].Price).to.equal(1.0)});\r",
+							"\r",
+							"pm.test(\"value of [1].Id to be 2\", () => {pm.expect(response[1].Id).to.equal(2)});\r",
+							"pm.test(\"value of [1].Name to be Yo-yo\", () => {pm.expect(response[1].Name).to.equal(\"Yo-yo\")});\r",
+							"pm.test(\"value of [1].Category to be Toys\", () => {pm.expect(response[1].Category).to.equal(\"Toys\")});\r",
+							"pm.test(\"value of [1].Price to be 3.75\", () => {pm.expect(response[1].Price).to.equal(3.75)});\r",
+							"\r",
+							"pm.test(\"value of [2].Id to be 3\", () => {pm.expect(response[2].Id).to.equal(3)});\r",
+							"pm.test(\"value of [2].Name to be Hammer\", () => {pm.expect(response[2].Name).to.equal(\"Hammer\")});\r",
+							"pm.test(\"value of [2].Category to be Hardware\", () => {pm.expect(response[2].Category).to.equal(\"Hardware\")});\r",
+							"pm.test(\"value of [2].Price to be 16.99\", () => {pm.expect(response[2].Price).to.equal(16.99)});\r",
+							"\r",
+							"\r",
+							"pm.test(\"response to be 200 OK\", () => {pm.response.to.have.status(200)});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44359/api/products",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44359",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Ids",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response = pm.response.json();\r",
+							"\r",
+							"pm.test(\"value of [1].Id to be 2\", () => {pm.expect(response.Id).to.equal(2)});\r",
+							"pm.test(\"value of [1].Name to be Yo-yo\", () => {pm.expect(response.Name).to.equal(\"Yo-yo\")});\r",
+							"pm.test(\"value of [1].Category to be Toys\", () => {pm.expect(response.Category).to.equal(\"Toys\")});\r",
+							"pm.test(\"value of [1].Price to be 3.75\", () => {pm.expect(response.Price).to.equal(3.75)});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44359/api/products/2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44359",
+					"path": [
+						"api",
+						"products",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
